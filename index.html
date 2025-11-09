@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+<title>Happy Anniversary, My Love</title>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="favicon.png" sizes="32x32">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    /* // respnsive design for mobile */
+    /* Base Styles */
+html {
+  scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background: linear-gradient(to bottom right, #ffe6e6, #fff0f5);
+  color: #333;
+  text-align: center;
+  padding: 1rem;
+  padding-bottom: 60px;
+}
+
+/* Typography */
+h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  margin-top: 100px;
+  color: #c71585;
+}
+
+.note {
+  font-size: 1.2rem;
+  color: #c71585;
+  margin: 30px auto;
+  max-width: 600px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 3s forwards;
+}
+
+/* Envelope */
+#envelope,
+#opened-envelope {
+  width: 150px;
+  cursor: pointer;
+  transition: transform 1s ease, opacity 1s ease;
+  margin-top: 40px;
+}
+
+#envelope.opening {
+  transform: rotateX(180deg) scale(1.2);
+  opacity: 0;
+}
+
+#opened-envelope {
+  display: none;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+#opened-envelope.pop {
+  display: block;
+  opacity: 0.9;
+  transform: scale(1.2);
+  animation: floatUp 10s ease-in-out infinite, fadeIn 5s ease forwards;
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  margin: 40px auto;
+  max-width: 700px;
+  padding: 1rem;
+}
+
+.photo {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  max-width: 300px;
+  width: 100%;
+}
+
+.photo img {
+  width: 100%;
+  height: auto;
+}
+
+.caption {
+  padding: 10px;
+  font-style: italic;
+  background-color: #fff;
+  font-size: 1rem;
+}
+
+/* Floating Hearts */
+.floating-hearts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center center;
+  background-size: contain;
+  animation: floatHeart 8s linear infinite;
+  opacity: 0.8;
+}
+
+/* Bottom Nav */
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffd6e8;
+  padding: 10px 0;
+  z-index: 1000;
+  opacity: 0;
+  display: block;
+}
+
+nav.fade-in {
+  animation: fadeInNav 1.5s ease forwards;
+}
+
+nav a {
+  padding: 0.75rem 1.5rem;
+  display: inline-block;
+  color: #c71585;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  60% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(100vh) scale(1);
+  }
+  100% {
+    transform: translateY(-10vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInNav {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  .note { font-size: 1rem; }
+  nav a { font-size: 1rem; padding: 0.5rem; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.8rem; margin-top: 60px; }
+  .note { font-size: 1rem; padding: 0 1rem; }
+  .gallery { grid-template-columns: 1fr; gap: 15px; padding: 0.5rem; }
+  .caption { font-size: 0.85rem; padding: 8px; }
+  nav { flex-direction: column; gap: 10px; padding: 8px 0; }
+  nav a { font-size: 0.95rem; padding: 0.5rem 1rem; }
+  #envelope, #opened-envelope { width: 120px; }
+  .heart { width: 16px; height: 16px; animation-duration: 6s; }
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+/* responsive for mobile */
+    html { 
+  scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(to bottom right, #ffe6e6, #fff0f5);
+      color: #333;
+      text-align: center;
+      padding-bottom: 60px; /* space for bottom nav */  
+    }
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3em;
+      margin-top: 20px; 
+      color: #c71585;
+    }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 20px;
+  justify-items: center;
+  margin: 40px auto;
+  max-width: 700px;
+}
+
+    .photo {
+      margin: 10px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 327.98px;
+      height: auto;
+    }
+    .photo img {
+      width: 300px;
+      height: auto;
+
+    }
+    .caption {
+      padding: 10px;
+      padding-top: 10px;
+      font-style: italic;
+      background-color: #fff;
+    }
+    .note {
+      margin: 30px auto;
+      max-width: 600px;
+      font-size: 1.2em;
+      color: #800080;
+    }
+    .floating-hearts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center center;
+  background-size: contain;
+  animation: floatHeart 8s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(100vh) scale(1);
+    left: calc(50% + (random() * 100px - 50px));
+  }
+  100% {
+    transform: translateY(-10vh) scale(1.5);
+    opacity: 0;
+  }
+}
+    /* #love-mail {
+      position: scroll;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom right, #ffe6e6, #fff0f5);
+      flex-direction: column;
+    } */
+
+  #love-mail {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-y: auto;
+  padding-bottom: 80px; /* space for bottom nav */
+}
+  .note {
+    font-size: 1.2em;
+    color: #c71585;
+    margin: 10px auto;
+    max-width: 600px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 3s forwards;
+    }
+
+@keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  #envelope {
+  width: 150px;
+  cursor: pointer;
+  transition: transform 1s ease, opacity 1s ease;
+  }
+
+  #envelope.opening {
+  transform: rotateX(180deg) scale(1.2);
+  opacity: 0;
+  }
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
+@keyframes popIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pop {
+  animation: popIn 0.6s ease forwards;
+}
+
+
+@keyframes floatUp {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+.opened-envelope {
+  width: 150px;
+  margin-top: 40px;
+  animation: floatUp 10s ease-in-out infinite, fadeIn 5s ease forwards;
+}
+#opened-envelope {
+  width: 150px;
+  margin-top: 40px;
+  display: none; /* hidden initially */
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  
+}
+
+#opened-envelope.pop {
+  display: block;       /* ✅ make it visible */
+  opacity: 0.9;        /* ✅ fade in */
+  transform: scale(1.2); /* ✅ pop effect */
+}
+
+
+@keyframes fadeInNav {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#bottom-nav.fade-in {
+  animation: fadeInNav 1.5s ease forwards;
+}
+
+
+</style>
+</head>
+<body>
+<div id="love-mail">
+  <div class="floating-hearts">
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+</div>
+  <img src="envelope.png" alt="Love Mail" id="envelope">
+  <img src="openenvelope.png" alt="Opened Envelope" id="opened-envelope" style="display: none;">
+<div id="love-notes" style="display:none;">
+  <h1>Happy 1st Anniversary 💖</h1>
+  <div class="note">
+    “One year ago, you walked into my life and made it a fairytale. Every moment with you is a memory I treasure.”
+  </div>
+<div class="gallery">
+  <div class="photo">
+    <img src="Esmeray_2.jpg" alt="Memory 1">
+    <div class="caption">Tipsy laughs, neon glow, clawed memories—love spun wild beneath arcade lights.<br></div>
+  </div>
+  <div class="photo">
+    <img src="Esmeray_1.jpg" alt="Memory 2">
+    <div class="caption">Queens breeze, just us two—joy unfolding, love reborn in every step we took.<br></div>
+  </div>
+  <div class="photo">
+    <img src="Esmeray_3.jpg" alt="Memory 3">
+    <div class="caption">Brooklyn lights, first Fourth of July—fireworks above, joy below, our hearts lit like the sky.<br></div>
+  </div>
+  <div class="photo">
+    <img src="Esmeray_4.jpg" alt="Memory 4">
+    <div class="caption">Forest Hills frost, our first snow—new home, small snowman, her fingers kissed by winter’s glow.<br></div>
+  </div>
+</div>
+  
+    <!-- Add more photos here -->
+</div>
+  </div>
+<nav id="bottom-nav" style="display:block; position:fixed; bottom:0; left:0; width:100%; background-color:#ffd6e8; padding:10px 0; z-index:1000; opacity:0;">
+  <div style="display:flex; justify-content:center; gap:30px;">
+    <a href="index.html" style="color:#c71585; text-decoration:none; font-size:1.1em;">📸 Gallery</a>
+    <a href="Playlist.html" style="color:#c71585; text-decoration:none; font-size:1.1em;">🎶 Playlist</a>
+</nav>  
+
+<script>
+
+document.getElementById("envelope").addEventListener("click", function () {
+  const envelope = document.getElementById("envelope");
+  const opened = document.getElementById("opened-envelope");
+  const notes = document.getElementById("love-notes");
+  const nav = document.getElementById("bottom-nav");
+
+  envelope.classList.add("opening");
+
+setTimeout(() => {
+        
+        void opened.offsetWidth; // forces reflow
+        opened.classList.add("pop");
+        envelope.style.display = "none";;
+        opened.style.display = "block";
+        notes.style.display = "block";
+        opened.style.display = "block";
+
+
+  const noteElements = notes.querySelectorAll(".note");
+  noteElements.forEach((note, index) => {
+    note.style.animationDelay = `${index * 3}s`;
+  });
+
+  nav.style.display = "block";
+  setTimeout(() => {
+    nav.classList.add("fade-in");
+  }, 100);
+}, 1000);
+});
+
+
+    // Envelope click animation
+    //   document.getElementById("envelope").addEventListener("click", function() {
+    //   const envelope = document.getElementById("envelope");
+    //   const opened = document.getElementById("opened-envelope");
+    //   const notes = document.getElementById("love-notes");
+  
+    //   envelope.classList.add("opening");
+
+    //   setTimeout(() => {
+    //     opened.classList.add("pop");
+    //     envelope.style.display = "none";
+    //     opened.style.display = "block";
+    //     notes.style.display = "block";
+  
+    //     const noteElements = notes.querySelectorAll(".note");
+    //     noteElements.forEach((note, index) => {
+    //       note.style.animationDelay = `${index * 3}s`;
+    //     });
+    //   }, 1000); // Wait for animation to finish
+    // });
+// Floating hearts animation
+  const hearts = document.querySelectorAll('.heart');
+  hearts.forEach((heart) => {
+    const left = Math.random() * window.innerWidth;
+    heart.style.left = `${left}px`;
+    heart.style.animationDelay = `${Math.random() * 5}s`;
+  });
+// Show bottom nav after notes appear
+
+// document.getElementById("envelope").addEventListener("click", function () {
+//   const envelope = document.getElementById("envelope");
+//   const opened = document.getElementById("opened-envelope");
+//   const notes = document.getElementById("love-notes");
+//   const nav = document.getElementById("bottom-nav");
+
+//   envelope.classList.add("opening");
+
+//   setTimeout(() => {
+//     opened.classList.add("pop");
+//     envelope.style.display = "none";
+//     opened.style.display = "block";
+//     notes.style.display = "block";
+
+//     const noteElements = notes.querySelectorAll(".note");
+//     noteElements.forEach((note, index) => {
+//       note.style.animationDelay = `${index * 3}s`;
+//     });
+
+//     // ✅ Show and animate nav bar AFTER envelope opens
+//     nav.style.display = "block";
+//     setTimeout(() => {
+//       nav.classList.add("fade-in");
+//     }, 100);
+//   }, 1000);
+// });
+
+
+
+</script>
+</body>
+</html>
+
